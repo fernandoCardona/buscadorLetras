@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 
-const Formulario = () => {
+const Formulario = ({guardarBusquedaLetra}) => {
 
     //Creamos el State del formulario
     const [busqueda, gusrdarBusqueda] = useState({
@@ -12,7 +12,7 @@ const Formulario = () => {
     const actualizarState = e => {
         gusrdarBusqueda({
             ...busqueda,
-            [e.target.name]: e.target.value
+            [e.target.name] : e.target.value
         });
     }
     const [error, guardarError] = useState(false);
@@ -27,7 +27,9 @@ const Formulario = () => {
             return;
         }
         guardarError(false);
-        //Pasar el state al componente principal
+
+    //Pasar el state al componente principal
+         guardarBusquedaLetra(busqueda);
 
         
     } 
